@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css?v=1"">
+    <link rel="stylesheet" href="style.css?v=2"">
     <title>Work Day Plans</title>
 </head>
 <body>
-    <script src="script.js?v=1""></script>
-    <div class="container">
-        <h1>Work Day Plans - Monday</h1>
+    <div class="day-switcher">
+        <button data-day="monday">Monday</button>
+        <button data-day="tuesday">Tuesday</button>
+        <button data-day="wednesday">Wednesday</button>
+        <button data-day="thursday">Thursday</button>
+        <button data-day="friday">Friday</button>
+        <button data-day="saturday">Saturday</button>
+        <button data-day="sunday">Sunday</button>
+    </div>
+
+    <!-- Add the schedules for each day -->
+    <div class="schedule-container" id="monday">
+        <h2>Monday Schedule</h2>
+        <!-- Add Monday's schedule here -->
         <div class="schedule">
             <div class="item">
                 <div class="time" id="time-0500">5:00 AM</div>
@@ -98,5 +109,16 @@
             </div>
         </div>
     </div>
+    <div class="schedule-container" id="tuesday">
+        <h2>Tuesday Schedule</h2>
+        <!-- Add Tuesday's schedule here -->
+    </div>
+      
+    <!-- <div class="container">
+        <h1>Work Day Plans - Monday</h1>
+        
+    </div> -->
+    <script src="script.js?v=2""></script>
+
 </body>
 </html>

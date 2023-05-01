@@ -26,3 +26,33 @@ function scrollToCurrentTime() {
 }
 
 window.addEventListener('DOMContentLoaded', scrollToCurrentTime);
+
+function showSchedule(day) {
+    const scheduleContainers = document.querySelectorAll('.schedule-container');
+    scheduleContainers.forEach((container) => {
+      container.style.display = container.id === day ? 'block' : 'none';
+    });
+  }
+  
+  function handleDaySwitch(event) {
+    const day = event.target.getAttribute('data-day');
+    if (day) {
+      showSchedule(day);
+    }
+  }
+  
+  function setCurrentDay() {
+    const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+    const today = new Date().getDay();
+    const currentDay = dayNames[today];
+    showSchedule(currentDay);
+  }
+  
+  window.addEventListener('DOMContentLoaded', () => {
+    setCurrentDay();
+    scrollToCurrentTime();
+  
+    const daySwitcher = document.querySelector('.day-switcher');
+    daySwitcher.addEventListener('click', handleDaySwitch);
+  });
+  
