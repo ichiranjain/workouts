@@ -1,12 +1,27 @@
+function formatTime(hours, minutes) {
+    return `${String(hours).padStart(2, '0')}${String(minutes).padStart(2, '0')}`;
+}
+
 function scrollToCurrentTime() {
     const now = new Date();
     const currentHour = now.getHours();
     const currentMinute = now.getMinutes();
-    const currentTimeId = `time-${String(currentHour).padStart(2, '0')}${String(currentMinute).padStart(2, '0')}`;
+    const currentTimeId = `time-${formatTime(currentHour, currentMinute)}`;
 
-    const timeElement = document.getElementById(currentTimeId) || document.querySelector('.time');
-    if (timeElement) {
-        timeElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const timeElements = Array.from(document.querySelectorAll('.time'));
+    const timeIds = timeElements.map((el) => el.id);
+
+    let closestTimeId = timeIds.reduce((prev, curr) => {
+        const prevDiff = Math.abs(parseInt(prev.split('-')[1]) - parseInt(currentTimeId.split('-')[1]));
+        const currDiff = Math.abs(parseInt(curr.split('-')[1]) - parseInt(currentTimeId.split('-')[1]));
+
+        return prevDiff < currDiff ? prev : curr;
+    });
+
+    const closestTimeElement = document.getElementById(closestTimeId) || document.querySelector('.time');
+    if (closestTimeElement) {
+        closestTimeElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        closestTimeElement.parentElement.classList.add('highlight');
     }
 }
 
