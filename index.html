@@ -8,14 +8,17 @@
 </head>
 <body>
     <div class="day-switcher">
-        <button data-day="monday">Monday</button>
-        <button data-day="tuesday">Tuesday</button>
-        <button data-day="wednesday">Wednesday</button>
-        <button data-day="thursday">Thursday</button>
-        <button data-day="friday">Friday</button>
-        <button data-day="saturday">Saturday</button>
-        <button data-day="sunday">Sunday</button>
-    </div>
+        <select id="day-dropdown">
+          <option value="monday">Monday</option>
+          <option value="tuesday">Tuesday</option>
+          <option value="wednesday">Wednesday</option>
+          <option value="thursday">Thursday</option>
+          <option value="friday">Friday</option>
+          <option value="saturday">Saturday</option>
+          <option value="sunday">Sunday</option>
+        </select>
+      </div>
+      
 
     <!-- Add the schedules for each day -->
     <div class="schedule-container" id="monday">
@@ -118,7 +121,7 @@
         <h1>Work Day Plans - Monday</h1>
         
     </div> -->
-    <script src="script.js?v=2""></script>
+    <script src="script.js?v=3""></script>
 
 </body>
 </html>

@@ -27,6 +27,13 @@ function scrollToCurrentTime() {
 
 window.addEventListener('DOMContentLoaded', scrollToCurrentTime);
 
+function handleDaySwitch(event) {
+    const day = event.target.value;
+    if (day) {
+      showSchedule(day);
+    }
+  }
+
 function showSchedule(day) {
     const scheduleContainers = document.querySelectorAll('.schedule-container');
     scheduleContainers.forEach((container) => {
@@ -35,11 +42,12 @@ function showSchedule(day) {
   }
   
   function handleDaySwitch(event) {
-    const day = event.target.getAttribute('data-day');
+    const day = event.target.value;
     if (day) {
       showSchedule(day);
     }
   }
+  
   
   function setCurrentDay() {
     const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
@@ -52,7 +60,7 @@ function showSchedule(day) {
     setCurrentDay();
     scrollToCurrentTime();
   
-    const daySwitcher = document.querySelector('.day-switcher');
-    daySwitcher.addEventListener('click', handleDaySwitch);
+    const dayDropdown = document.getElementById('day-dropdown');
+    dayDropdown.addEventListener('change', handleDaySwitch);
   });
   
